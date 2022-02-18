@@ -5,6 +5,10 @@ import { UserServices } from '../services';
 import * as EmailValidator from 'email-validator';
 const bcrypt = require('bcryptjs');
 
+/**
+ * To verify user existance 
+ * @param email 
+ */
 export const getUser = async (ctx: IRouterContext): Promise<any> => {
   try {
     const { email } = ctx.request.query;
@@ -15,6 +19,10 @@ export const getUser = async (ctx: IRouterContext): Promise<any> => {
   }
 };
 
+/**
+ * To get user by id
+ * @param id
+ */
 export const getUserById = async (ctx: IRouterContext): Promise<any> => {
   try {
     const { id } = ctx.params;
@@ -25,16 +33,29 @@ export const getUserById = async (ctx: IRouterContext): Promise<any> => {
   }
 };
 
+/**
+ * To create user
+ * Request body in JSON
+ * @param ctx 
+ */
 export const createUser = async (ctx: IRouterContext): Promise<any> => {
   try {
     const body = ctx.request.body;
+    
+    /** to validate request JSON body does not miss any mandatory field */
     await validateReqBody(body);
+    
+    /** To check terms and conditions are selected. If not throws error */
     if (!body.tnc) {
       throwError('Kindly read and approve Terms and Conditions', 404);
     }
+
+    /** Validating email format */
     const email = body.email && EmailValidator.validate(body.email.toLowerCase()) === true ?
       body.email.toLowerCase() : throwError('Invalid Email!', 400);
     delete body.email;
+    
+    /** Converting password into hash to store in database. */
     let password;
     if (body.password) {
       const salt = bcrypt.genSaltSync(10);
@@ -51,6 +72,11 @@ export const createUser = async (ctx: IRouterContext): Promise<any> => {
   }
 };
 
+/**
+ * To update user details by id
+ * request body in JSON
+ * @param id
+ */
 export const updateUser = async (ctx: IRouterContext): Promise<any> => {
   try {
     const { id } = ctx.params;
@@ -76,6 +102,10 @@ export const updateUser = async (ctx: IRouterContext): Promise<any> => {
   }
 };
 
+/**
+ * To delete user by id
+ * @param id 
+ */
 export const removeUser = async (ctx: IRouterContext): Promise<any> => {
   try {
     const { id } = ctx.params;

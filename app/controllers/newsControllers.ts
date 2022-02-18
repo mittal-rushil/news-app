@@ -5,11 +5,13 @@ import { NewsServices } from '../services';
 export const getNews = async (ctx: IRouterContext): Promise<any> => {
   try {
     const { sortBy, search, category, author } = ctx.request.query;
+    /** To handle multiple categories */
     let categoryArray;
     if (category) {
       const filterCateagory: any = category;
       categoryArray = filterCateagory ? filterCateagory.split(',') : [];
     }
+    /** To handle multiple authors */
     let authorArray;
     if (author) {
       const filterAuthor: any = author;

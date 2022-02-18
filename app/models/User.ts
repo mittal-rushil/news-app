@@ -1,3 +1,4 @@
+/** User Modal and table structure */
 import { Model } from 'objection';
 
 export interface IUsers {

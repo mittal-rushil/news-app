@@ -26,7 +26,7 @@ koaApp.use(koaRouter.routes());
 
 if (!module.parent) {
   const server = http.createServer(koaApp.callback());
-  // Strat Server
+  // Start server
   server.listen(config.port, config.ip, () => {
     console.log('Server listening on %d, in %s mode', config.port, koaApp.env);
   });

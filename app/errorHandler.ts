@@ -1,3 +1,4 @@
+// For error handling
 import { Context } from 'koa';
 
 class ErrorMsg extends Error {
