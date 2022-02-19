@@ -15,12 +15,6 @@ exports.up = (knex, Promise) => {
   });
 };
 
-// exports.up = (knex, Promise) => {
-//   return knex.schema.alterTable('Users', (table) => {
-//     table.unique('email');
-//   });
-// };
-
 exports.down = async (knex) => {
   await knex.schema.dropTableIfExists('Users');
 };
