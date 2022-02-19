@@ -1,6 +1,5 @@
 import { throwError } from '../errorHandler';
 import News, { INews } from '../models/News';
-import _ from 'underscore';
 
 /** SQL query written to get news feeds with
  * sorting functionality,
