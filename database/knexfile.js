@@ -1,4 +1,3 @@
-require('dotenv').config();
 const configuration = {
   client: process.env.DB_CLIENT || 'mssql',
   connection: {

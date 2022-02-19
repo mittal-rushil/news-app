@@ -109,8 +109,8 @@ export const updateUser = async (ctx: IRouterContext): Promise<any> => {
 export const removeUser = async (ctx: IRouterContext): Promise<any> => {
   try {
     const { id } = ctx.params;
-    const response = await UserServices.removeUser(Number(id));
-    ctx.body = response;
+    await UserServices.removeUser(Number(id));
+    ctx.body = 'User successfully removed';
   } catch (err) {
     handleValidationError(ctx, err);
   }

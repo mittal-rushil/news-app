@@ -22,7 +22,7 @@ export const getUser = async (email: any): Promise<IUsers | any> => {
  */
 export const getUserById = async (id: number): Promise<IUsers | any> => {
   const response: any = await Users.query().where({ id }).first();
-  if (!response && !response.length) {
+  if (!response) {
     throwError('User not found.', 404);
   }
   return response;
