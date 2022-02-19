@@ -1,6 +1,6 @@
 # news-app
 
-# This service is written using Typescript.
+# This service has been written using Typescript.
 # Framework used:- Koa.js.
 # ORM used:- Objection.js and knex.js
 # 
