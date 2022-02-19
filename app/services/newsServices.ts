@@ -6,11 +6,11 @@ import _ from 'underscore';
  * sorting functionality,
  * filtering functionality,
  * search functionality.
- * */
+ */
 export const getNews = async (sortBy: any, category: any | [], author: any | [], search: any): Promise<INews | any> => {
   try {
     const query = News.query();
-    
+
     /** query for search field */
     if (search) {
       query.where(q => {

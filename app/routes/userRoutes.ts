@@ -4,7 +4,7 @@ import {
 } from '../controllers';
 
 export default (route: Router) => {
-  
+
   /** API to get user data by id */
   route.get(
     '/app/user/:id',

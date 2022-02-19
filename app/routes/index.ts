@@ -7,7 +7,7 @@ import {
 
 export default (route: Router) => {
   userRoutes(route);
-  
+
   /**
    * API to verify user existance in the system
    */

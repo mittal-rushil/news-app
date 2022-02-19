@@ -17,8 +17,8 @@ export const getUser = async (email: any): Promise<IUsers | any> => {
 
 /**
  * select query to get user details using user id from Users table
- * @param id 
- * @returns 
+ * @param id
+ * @returns
  */
 export const getUserById = async (id: number): Promise<IUsers | any> => {
   const response: any = await Users.query().where({ id }).first();
@@ -30,10 +30,10 @@ export const getUserById = async (id: number): Promise<IUsers | any> => {
 
 /**
  * insert query to create new user by inserting data in Users table
- * @param body 
- * @param email 
- * @param password 
- * @returns 
+ * @param body
+ * @param email
+ * @param password
+ * @returns
  */
 export const createUser = async (body: IUsers | any, email: string | any, password: string | any):
 Promise<IUsers | any> => {
@@ -53,10 +53,10 @@ Promise<IUsers | any> => {
 /**
  * Update query to update user details in Users table
  * @param id
- * @param body 
- * @param email 
- * @param password 
- * @returns 
+ * @param body
+ * @param email
+ * @param password
+ * @returns
  */
 export const updateUser = async (id: number, body: IUsers | any, email: string, password: string | any):
 Promise<IUsers | any> => {
@@ -79,7 +79,7 @@ Promise<IUsers | any> => {
 /**
  * Delete query to remove the user using user id from Users table
  * @param id
- * @returns 
+ * @returns
  */
 export const removeUser = async (id: number): Promise<IUsers | any> => {
   try {

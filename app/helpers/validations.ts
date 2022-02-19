@@ -2,7 +2,7 @@ import { throwError } from '../errorHandler';
 
 /**
  * To validate the JSON request body
- * @param requestbody 
+ * @param requestbody
  */
 export const validateReqBody = async (body: any): Promise<any> => {
   for (const key in body) {
