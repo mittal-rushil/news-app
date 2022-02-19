@@ -8,7 +8,8 @@ import Users from '../models/User';
  * @returns
  */
 export const getUser = async (email: any): Promise<IUsers | any> => {
-  const response: any = await Users.query().where({ email }).first();
+  const response: any = await Users.query().select('id', 'userName', 'email', 'phone', 'gender', 'language', 'birthDate',
+  'birthTime').where({ email }).first();
   if (!response) {
     throwError('User not found. Access Denied!', 404);
   }
@@ -21,7 +22,8 @@ export const getUser = async (email: any): Promise<IUsers | any> => {
  * @returns
  */
 export const getUserById = async (id: number): Promise<IUsers | any> => {
-  const response: any = await Users.query().where({ id }).first();
+  const response: any = await Users.query().select('id', 'userName', 'email', 'phone', 'gender', 'language', 'birthDate',
+  'birthTime').where({ id }).first();
   if (!response) {
     throwError('User not found.', 404);
   }
@@ -44,7 +46,7 @@ Promise<IUsers | any> => {
     createdAt: new Date(),
     updatedAt: new Date(),
   });
-  if (!response && !response.length) {
+  if (!response) {
     throwError('Unable to create user.', 404);
   }
   return response;
@@ -70,7 +72,7 @@ Promise<IUsers | any> => {
     ...body,
     updatedAt: new Date(),
   });
-  if (!response && !response.length) {
+  if (!response) {
     throwError('Unable to update user.', 404);
   }
   return response;
