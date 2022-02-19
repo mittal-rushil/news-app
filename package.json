@@ -7,8 +7,7 @@
     "migrate": "knex --knexfile database/knexfile.js migrate:latest",
     "rollback": "knex --knexfile database/knexfile.js migrate:rollback",
     "start": "tsc-watch --onSuccess \"node --inspect=0.0.0.0:9229 ./src/app/server.js\"",
-    "build": "npm run lint && tsc && npm run copy",
-    "copy": "cp -r './src/app'",
+    "build": "npm run lint && tsc",
     "lint": "tslint -c ./tslint.json './app/**/*.ts'"
   },
   "author": "rushil-mittal",
